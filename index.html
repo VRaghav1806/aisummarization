@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Summarizer</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 40px; background-color: #f0f4f8; }
+        textarea { width: 100%; height: 150px; padding: 10px; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .summary { margin-top: 20px; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .summary li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <h2>Text Summarizer</h2>
+    <form method="post">
+        <label>Enter a paragraph:</label><br>
+        <textarea name="paragraph">{{ original_text }}</textarea><br><br>
+        <button type="submit">Summarize</button>
+    </form>
+
+    {% if summary %}
+        <div class="summary">
+            <h3>🔹 Summary (Point by Point):</h3>
+            <ul>
+                {% for point in summary %}
+                    <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</body>
+</html>
